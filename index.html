@@ -7,23 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script type="module" src="script.js"></script>
+
     <div class="container">
+
         <h1>Portal de Vacaciones</h1>
 
         <div class="card">
+            <h2>Acceso</h2>
+
+            <button onclick="loginGoogle()">
+                Iniciar sesión con Google
+            </button>
+
+            <p id="usuario">
+                No has iniciado sesión
+            </p>
+        </div>
+
+        <div class="card">
             <h2>Resumen</h2>
-            <p>Días disponibles: <strong>23</strong></p>
-            <p>Solicitudes pendientes: <strong>1</strong></p>
+
+            <p>
+                Días disponibles:
+                <strong>23</strong>
+            </p>
+
+            <p>
+                Estado:
+                <strong>Empleado</strong>
+            </p>
         </div>
 
         <div class="card">
             <h2>Solicitar vacaciones</h2>
 
+            <label>Fecha inicio</label>
+            <br>
             <input type="date" id="inicio">
+
+            <br><br>
+
+            <label>Fecha fin</label>
+            <br>
             <input type="date" id="fin">
 
-            <button onclick="solicitarVacaciones()">
+            <br><br>
+
+            <button onclick="guardarVacaciones()">
                 Enviar solicitud
             </button>
         </div>
@@ -32,11 +62,15 @@
             <h2>Mis solicitudes</h2>
 
             <ul id="lista">
-                <li>10/08/2026 - 20/08/2026 (Aprobada)</li>
+                <li>
+                    Aquí aparecerán tus solicitudes
+                </li>
             </ul>
         </div>
+
     </div>
 
+    <script type="module" src="script.js"></script>
 
 </body>
 </html>
