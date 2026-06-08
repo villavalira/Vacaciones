@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Vacaciones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Portal de Vacaciones</h1>
+
+        <div class="card">
+            <h2>Resumen</h2>
+            <p>Días disponibles: <strong>23</strong></p>
+            <p>Solicitudes pendientes: <strong>1</strong></p>
+        </div>
+
+        <div class="card">
+            <h2>Solicitar vacaciones</h2>
+
+            <input type="date" id="inicio">
+            <input type="date" id="fin">
+
+            <button onclick="solicitarVacaciones()">
+                Enviar solicitud
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>Mis solicitudes</h2>
+
+            <ul id="lista">
+                <li>10/08/2026 - 20/08/2026 (Aprobada)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
