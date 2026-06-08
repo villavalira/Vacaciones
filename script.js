@@ -33,7 +33,7 @@ const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
 const ADMIN_EMAILS = [
-"[phcstudiosl@gmail.com"
+"phcstudiosl@gmail.com"
 ];
 
 window.loginGoogle = async () => {
@@ -52,6 +52,16 @@ document.getElementById(
 ).innerHTML =
   "Conectado como: " +
   result.user.email;
+
+if (
+  ADMIN_EMAILS.includes(
+    result.user.email
+  )
+) {
+  document.getElementById(
+    "adminLink"
+  ).style.display = "block";
+}
 
 await cargarMisVacaciones();
 ```
@@ -198,22 +208,38 @@ snapshot.forEach(
 }
 
 onAuthStateChanged(
-auth,
-async (user) => {
+  auth,
+  async (user) => {
 
-```
-if(user){
+    if(user){
 
-  document.getElementById(
-    "usuario"
-  ).innerHTML =
-    "Conectado como: " +
-    user.email;
+      document.getElementById(
+        "usuario"
+      ).innerHTML =
+        "Conectado como: " +
+        user.email;
 
-  await cargarMisVacaciones();
+      if (
+        ADMIN_EMAILS.includes(
+          user.email
+        )
+      ) {
 
-}
-```
+        const adminLink =
+          document.getElementById(
+            "adminLink"
+          );
 
-}
+        if(adminLink){
+          adminLink.style.display =
+            "block";
+        }
+
+      }
+
+      await cargarMisVacaciones();
+
+    }
+
+  }
 );
