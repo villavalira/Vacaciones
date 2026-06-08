@@ -1,18 +1,73 @@
-function solicitarVacaciones() {
-    const inicio = document.getElementById("inicio").value;
-    const fin = document.getElementById("fin").value;
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-    if (!inicio || !fin) {
-        alert("Selecciona ambas fechas");
-        return;
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCfsaoePqf5xWewNTBV6PmF5cNXWNUy-mk",
+  authDomain: "vacaciones-empleados.firebaseapp.com",
+  projectId: "vacaciones-empleados",
+  storageBucket: "vacaciones-empleados.firebasestorage.app",
+  messagingSenderId: "977710909114",
+  appId: "1:977710909114:web:9d2a0c63d67e2a0e60e483",
+  measurementId: "G-TNKLJR8W12"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const provider = new GoogleAuthProvider();
+
+window.loginGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+
+    alert(
+      "Bienvenido " + result.user.displayName
+    );
+
+    console.log(result.user);
+
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+window.guardarVacaciones = async () => {
+  if (!auth.currentUser) {
+    alert("Debes iniciar sesión");
+    return;
+  }
+
+  const inicio =
+    document.getElementById("inicio").value;
+
+  const fin =
+    document.getElementById("fin").value;
+
+  await addDoc(
+    collection(db, "vacaciones"),
+    {
+      usuario: auth.currentUser.email,
+      nombre: auth.currentUser.displayName,
+      inicio,
+      fin,
+      estado: "pendiente",
+      fecha: new Date()
     }
+  );
 
-    const lista = document.getElementById("lista");
-
-    const item = document.createElement("li");
-    item.textContent = `${inicio} - ${fin} (Pendiente)`;
-
-    lista.appendChild(item);
-
-    alert("Solicitud enviada");
-}
+  alert("Vacaciones guardadas");
+};
