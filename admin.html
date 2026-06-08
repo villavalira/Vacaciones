@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="es">
 <head>
-  <title>Administrador</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador Vacaciones</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-<h1>Panel Administrador</h1>
+```
+<h1>Panel de Administración</h1>
 
-<table border="1" id="tablaVacaciones">
+<p>
+    <a href="index.html">
+        ← Volver al portal
+    </a>
+</p>
 
-<tr>
-  <th>Empleado</th>
-  <th>Inicio</th>
-  <th>Fin</th>
-  <th>Estado</th>
-  <th>Acciones</th>
-</tr>
+<div class="card">
 
-</table>
+    <h2>Solicitudes de Vacaciones</h2>
+
+    <table id="tablaVacaciones" border="1" width="100%">
+        <thead>
+            <tr>
+                <th>Empleado</th>
+                <th>Email</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbodyVacaciones">
+
+        </tbody>
+
+    </table>
+
+</div>
+```
 
 </div>
 
