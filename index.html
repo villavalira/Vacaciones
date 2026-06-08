@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,69 +9,65 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Portal de Vacaciones</h1>
+```
+<h1>Portal de Vacaciones</h1>
 
-        <div class="card">
-            <h2>Acceso</h2>
+<div class="card">
 
-            <button onclick="loginGoogle()">
-                Iniciar sesión con Google
-            </button>
+    <h2>Acceso</h2>
 
-            <p id="usuario">
-                No has iniciado sesión
-            </p>
-        </div>
+    <button onclick="loginGoogle()">
+        Iniciar sesión con Google
+    </button>
 
-        <div class="card">
-            <h2>Resumen</h2>
+    <p id="usuario">
+        No has iniciado sesión
+    </p>
 
-            <p>
-                Días disponibles:
-                <strong>23</strong>
-            </p>
+    <a href="admin.html">
+        Ir al panel de administración
+    </a>
 
-            <p>
-                Estado:
-                <strong>Empleado</strong>
-            </p>
-        </div>
+</div>
 
-        <div class="card">
-            <h2>Solicitar vacaciones</h2>
+<div class="card">
 
-            <label>Fecha inicio</label>
-            <br>
-            <input type="date" id="inicio">
+    <h2>Solicitar vacaciones</h2>
 
-            <br><br>
+    <label>Fecha inicio</label>
+    <br>
+    <input type="date" id="inicio">
 
-            <label>Fecha fin</label>
-            <br>
-            <input type="date" id="fin">
+    <br><br>
 
-            <br><br>
+    <label>Fecha fin</label>
+    <br>
+    <input type="date" id="fin">
 
-            <button onclick="guardarVacaciones()">
-                Enviar solicitud
-            </button>
-        </div>
+    <br><br>
 
-        <div class="card">
-            <h2>Mis solicitudes</h2>
+    <button onclick="guardarVacaciones()">
+        Enviar solicitud
+    </button>
 
-            <ul id="lista">
-                <li>
-                    Aquí aparecerán tus solicitudes
-                </li>
-            </ul>
-        </div>
+</div>
 
-    </div>
+<div class="card">
 
-    <script type="module" src="script.js"></script>
+    <h2>Mis solicitudes</h2>
+
+    <ul id="lista">
+
+    </ul>
+
+</div>
+```
+
+</div>
+
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
