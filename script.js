@@ -32,6 +32,9 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
+const ADMIN_EMAILS = [
+"[phcstudiosl@gmail.com"
+];
 
 window.loginGoogle = async () => {
 
