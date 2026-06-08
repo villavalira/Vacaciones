@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -11,64 +10,57 @@
 
 <div class="container">
 
-```
-<h1>Portal de Vacaciones</h1>
+    <h1>Portal de Vacaciones</h1>
 
-<div class="card">
+    <div class="card">
 
-    <h2>Acceso</h2>
+        <h2>Acceso</h2>
 
-    <button onclick="loginGoogle()">
-        Iniciar sesión con Google
-    </button>
+        <button onclick="loginGoogle()">
+            Iniciar sesión con Google
+        </button>
 
-    <p id="usuario">
-        No has iniciado sesión
-    </p>
-<div id="adminLink" style="display:none;">
-  <a href="admin.html">
-    Panel de Administración
-  </a>
-</div>
+        <p id="usuario">
+            No has iniciado sesión
+        </p>
 
-    <a href="admin.html">
-        Ir al panel de administración
-    </a>
+        <div id="adminLink" style="display:none;">
+            <a href="admin.html">
+                Panel de Administración
+            </a>
+        </div>
 
-</div>
+    </div>
 
-<div class="card">
+    <div class="card">
 
-    <h2>Solicitar vacaciones</h2>
+        <h2>Solicitar vacaciones</h2>
 
-    <label>Fecha inicio</label>
-    <br>
-    <input type="date" id="inicio">
+        <label>Fecha inicio</label>
+        <br>
+        <input type="date" id="inicio">
 
-    <br><br>
+        <br><br>
 
-    <label>Fecha fin</label>
-    <br>
-    <input type="date" id="fin">
+        <label>Fecha fin</label>
+        <br>
+        <input type="date" id="fin">
 
-    <br><br>
+        <br><br>
 
-    <button onclick="guardarVacaciones()">
-        Enviar solicitud
-    </button>
+        <button onclick="guardarVacaciones()">
+            Enviar solicitud
+        </button>
 
-</div>
+    </div>
 
-<div class="card">
+    <div class="card">
 
-    <h2>Mis solicitudes</h2>
+        <h2>Mis solicitudes</h2>
 
-    <ul id="lista">
+        <ul id="lista"></ul>
 
-    </ul>
-
-</div>
-```
+    </div>
 
 </div>
 
