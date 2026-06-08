@@ -33,7 +33,8 @@ const provider = new GoogleAuthProvider();
 window.loginGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
-
+document.getElementById("usuario").innerHTML =
+  "Conectado como: " + result.user.email;
     alert(
       "Bienvenido " + result.user.displayName
     );
