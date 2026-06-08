@@ -117,8 +117,12 @@ const datos = registro.data();
 const li = document.createElement("li");
 
 li.innerHTML =
-`${datos.inicio} → ${datos.fin} (${datos.estado})`;
-
+  datos.inicio +
+  " → " +
+  datos.fin +
+  " (" +
+  datos.estado +
+  ")";
 lista.appendChild(li);
 
 });
