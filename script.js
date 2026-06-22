@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+fbasimport { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
 getAuth,
 GoogleAuthProvider,
@@ -42,7 +42,29 @@ window.loginGoogle = async () => {
 try {
 
 const result = await signInWithPopup(auth, provider);
+const user = result.user;
 
+const userRef =
+doc(db, "users", user.uid);
+
+const userSnap =
+await getDoc(userRef);
+
+if (!userSnap.exists()) {
+
+  await setDoc(userRef, {
+
+    email: user.email,
+
+    name: user.displayName,
+
+    role: "employee",
+
+    barId: null
+
+  });
+
+}
 document.getElementById("usuario").innerHTML =
 "Conectado como: " + result.user.email;
 
@@ -79,6 +101,7 @@ return;
 }
 
 await addDoc(collection(db, "vacaciones"), {
+userId: auth.currentUser.uid,
 usuario: auth.currentUser.email,
 nombre: auth.currentUser.displayName,
 inicio,
