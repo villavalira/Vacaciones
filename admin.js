@@ -38,10 +38,12 @@ const db = getFirestore(app);
 
 async function cargarPendientes() {
 
+console.log("Cargando pendientes...");
+
 const lista =
-document.getElementById(
-"listaPendientes"
-);
+document.getElementById("listaPendientes");
+
+console.log("Elemento lista:", lista);
 
 if(!lista) return;
 
@@ -52,8 +54,13 @@ collection(db,"users"),
 where("barId","==",null)
 );
 
-const snapshot =
-await getDocs(q);
+const snapshot = await getDocs(q);
+
+console.log("Usuarios pendientes:", snapshot.size);
+
+snapshot.forEach((doc)=>{
+    console.log(doc.id, doc.data());
+});
 
 snapshot.forEach((userDoc)=>{
 const data =
