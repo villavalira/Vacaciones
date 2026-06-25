@@ -54,14 +54,6 @@ collection(db,"users"),
 where("barId","==",null)
 );
 
-const snapshot = await getDocs(q);
-
-console.log("Usuarios pendientes:", snapshot.size);
-
-snapshot.forEach((doc)=>{
-    console.log(doc.id, doc.data());
-});
-
 snapshot.forEach((userDoc)=>{
 const data =
 userDoc.data();
